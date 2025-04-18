@@ -4,30 +4,30 @@
 <head>
   <title>Interactive LASM Swiss Cheese Model</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
     .container {
       position: relative;
       width: 1332px;
       height: 709px;
+      margin-bottom: 20px;
     }
     .container img {
       position: absolute;
+      width: 1332px;
+      height: 709px;
     }
     .container img.base {
       z-index: 0;
-      width: 100%;
     }
     .overlay {
       z-index: 1;
       display: none;
-      position: absolute;
     }
-    #patch1 { top: 122px; left: 143px; }
-#patch2 { top: 170px; left: 235px; }
-#patch3 { top: 192px; left: 333px; }
-#patch4 { top: 200px; left: 430px; }
-#patch5 { top: 210px; left: 528px; }
-#patch6 { top: 220px; left: 630px; }
-#patch7 { top: 230px; left: 735px; }
+    #controls {
+      width: 1332px;
+    }
   </style>
 </head>
 <body>
@@ -37,18 +37,18 @@
 
   <div class="container">
     <img src="LASM_Dru.png" class="base" id="baseImage">
-    <img src="patch_1.png" class="overlay" id="patch1">
-    <img src="patch_2.png" class="overlay" id="patch2">
-    <img src="patch_3.png" class="overlay" id="patch3">
-    <img src="patch_4.png" class="overlay" id="patch4">
-    <img src="patch_5.png" class="overlay" id="patch5">
-    <img src="patch_6.png" class="overlay" id="patch6">
-    <img src="patch_7.png" class="overlay" id="patch7">
+    <img src="patch_1.png" class="overlay" id="patch1" style="top:122px; left:143px;">
+    <img src="patch_2.png" class="overlay" id="patch2" style="top:170px; left:235px;">
+    <img src="patch_3.png" class="overlay" id="patch3" style="top:192px; left:333px;">
+    <img src="patch_4.png" class="overlay" id="patch4" style="top:200px; left:430px;">
+    <img src="patch_5.png" class="overlay" id="patch5" style="top:210px; left:528px;">
+    <img src="patch_6.png" class="overlay" id="patch6" style="top:220px; left:630px;">
+    <img src="patch_7.png" class="overlay" id="patch7" style="top:230px; left:735px;">
   </div>
 
-  <div style="margin-top: 20px;">
+  <div id="controls">
     <label><input type="checkbox" id="cb1"> 1557-Compliant System Policy & Procedures for Pre-Arrival through Discharge and Follow-Up</label><br>
-    <label><input type="checkbox" id="cb2"> Prompt Availability of, Accessibility to, and Team Member's familiarity with Patient's Preferred Interpreting Modality</label><br>
+    <label><input type="checkbox" id="cb2"> Prompt Availability of, Accessibility to, and Team Member&apos;s familiarity with Patient&apos;s Preferred Interpreting Modality</label><br>
     <label><input type="checkbox" id="cb3"> Adherence to CLAS</label><br>
     <label><input type="checkbox" id="cb4"> Documented Training in TeamSTEPPS & Just Culture</label><br>
     <label><input type="checkbox" id="cb5"> Report Outs, Safety Huddles, & FMEA and RCA2 f/u</label><br>
