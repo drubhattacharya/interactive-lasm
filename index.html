@@ -7,7 +7,7 @@
     .container {
       position: relative;
       width: 100%;
-      max-width: 1000px;
+      max-width: 1332px;
     }
     .container img {
       width: 100%;
@@ -29,19 +29,17 @@
 <body>
   <h2>Interactive LASM Swiss Cheese Model</h2>
   <p>Select mitigation strategies below. Each patch appears as you reduce—but do not eliminate—risk in a control layer.</p>
-  <p id="counter"><strong>Controls Applied:</strong> 0 of 9</p>
+  <p id="counter"><strong>Controls Applied:</strong> 0 of 7</p>
 
   <div class="container">
     <img src="LASM_Dru.png" class="base" id="baseImage">
-    <img src="patch_aligned_1.png" class="overlay" id="patch1">
-    <img src="patch_aligned_2.png" class="overlay" id="patch2">
-    <img src="patch_aligned_3.png" class="overlay" id="patch3">
-    <img src="patch_aligned_4.png" class="overlay" id="patch4">
-    <img src="patch_aligned_5.png" class="overlay" id="patch5">
-    <img src="patch_aligned_6.png" class="overlay" id="patch6">
-    <img src="patch_aligned_7.png" class="overlay" id="patch7">
-    <img src="patch_aligned_8.png" class="overlay" id="patch8">
-    <img src="patch_aligned_9.png" class="overlay" id="patch9">
+    <img src="patch_1.png" class="overlay" id="patch1">
+    <img src="patch_2.png" class="overlay" id="patch2">
+    <img src="patch_3.png" class="overlay" id="patch3">
+    <img src="patch_4.png" class="overlay" id="patch4">
+    <img src="patch_5.png" class="overlay" id="patch5">
+    <img src="patch_6.png" class="overlay" id="patch6">
+    <img src="patch_7.png" class="overlay" id="patch7">
   </div>
 
   <div style="margin-top: 20px;">
@@ -52,8 +50,6 @@
     <label><input type="checkbox" id="cb5" onclick="togglePatch(5)"> Report Outs, Safety Huddles, &amp; FMEA and RCA2 f/u</label><br>
     <label><input type="checkbox" id="cb6" onclick="togglePatch(6)"> Language Assessment to identify LEP and/or Deaf and Hard of Hearing Patient</label><br>
     <label><input type="checkbox" id="cb7" onclick="togglePatch(7)"> Effective Assistance</label><br>
-    <label><input type="checkbox" id="cb8" onclick="togglePatch(8)"> Teach-Back at Discharge</label><br>
-    <label><input type="checkbox" id="cb9" onclick="togglePatch(9)"> Provision of interpreter via Audio/VRI/On-site, or Primary Caregiver QBS</label><br>
   </div>
 
   <script>
@@ -62,7 +58,7 @@
       const checkbox = document.getElementById("cb" + id);
       patch.style.display = checkbox.checked ? "block" : "none";
 
-      let total = 9;
+      let total = 7;
       let applied = 0;
       for (let i = 1; i <= total; i++) {
         if (document.getElementById("cb" + i).checked) applied++;
