@@ -24,36 +24,42 @@
 <body>
   <h2>Interactive LASM Swiss Cheese Model</h2>
   <p>Select mitigation strategies below. Each patch appears as you reduce—but do not eliminate—risk in a control layer.</p>
+  <p id="counter"><strong>Controls Applied:</strong> 0 of 9</p>
 
   <div class="container">
     <img src="LASM_Dru.png" class="base">
-    <img src="seal_patch_1.png" class="overlay" id="patch1">
-<img src="seal_patch_2.png" class="overlay" id="patch2">
-<img src="seal_patch_3.png" class="overlay" id="patch3">
-<img src="seal_patch_4.png" class="overlay" id="patch4">
-<img src="seal_patch_5.png" class="overlay" id="patch5">
-<img src="seal_patch_6.png" class="overlay" id="patch6">
-<img src="seal_patch_7.png" class="overlay" id="patch7">
-<img src="seal_patch_8.png" class="overlay" id="patch8">
-<img src="seal_patch_9.png" class="overlay" id="patch9">
+    <img src="patch_corrected_1.png" class="overlay" id="patch1">
+    <img src="patch_corrected_2.png" class="overlay" id="patch2">
+    <img src="patch_corrected_3.png" class="overlay" id="patch3">
+    <img src="patch_corrected_4.png" class="overlay" id="patch4">
+    <img src="patch_corrected_5.png" class="overlay" id="patch5">
+    <img src="patch_corrected_6.png" class="overlay" id="patch6">
+    <img src="patch_corrected_7.png" class="overlay" id="patch7">
+    <img src="patch_corrected_8.png" class="overlay" id="patch8">
+    <img src="patch_corrected_9.png" class="overlay" id="patch9">
   </div>
 
   <div>
-    <label><input type="checkbox" onclick="togglePatch(1)"> Mitigation 1</label><br>
-<label><input type="checkbox" onclick="togglePatch(2)"> Mitigation 2</label><br>
-<label><input type="checkbox" onclick="togglePatch(3)"> Mitigation 3</label><br>
-<label><input type="checkbox" onclick="togglePatch(4)"> Mitigation 4</label><br>
-<label><input type="checkbox" onclick="togglePatch(5)"> Mitigation 5</label><br>
-<label><input type="checkbox" onclick="togglePatch(6)"> Mitigation 6</label><br>
-<label><input type="checkbox" onclick="togglePatch(7)"> Mitigation 7</label><br>
-<label><input type="checkbox" onclick="togglePatch(8)"> Mitigation 8</label><br>
-<label><input type="checkbox" onclick="togglePatch(9)"> Mitigation 9</label><br>
+    <label><input type="checkbox" onclick="togglePatch(1)"> General Obligations</label><br>
+    <label><input type="checkbox" onclick="togglePatch(2)"> Interpreting Modality</label><br>
+    <label><input type="checkbox" onclick="togglePatch(3)"> Culturally Appropriate Care</label><br>
+    <label><input type="checkbox" onclick="togglePatch(4)"> Teamwork & Just Culture</label><br>
+    <label><input type="checkbox" onclick="togglePatch(5)"> Reporting & Safety Huddles</label><br>
+    <label><input type="checkbox" onclick="togglePatch(6)"> Assessment of Patient Need</label><br>
+    <label><input type="checkbox" onclick="togglePatch(7)"> Effective Assistance</label><br>
+    <label><input type="checkbox" onclick="togglePatch(8)"> Teach-Back at Discharge</label><br>
+    <label><input type="checkbox" onclick="togglePatch(9)"> Qualified Interpreter in ED</label><br>
   </div>
 
   <script>
+    let applied = 0;
+    const total = 9;
     function togglePatch(id) {
-      var el = document.getElementById("patch" + id);
-      el.style.display = (el.style.display === "block") ? "none" : "block";
+      const patch = document.getElementById("patch" + id);
+      const box = event.target;
+      patch.style.display = box.checked ? "block" : "none";
+      applied += box.checked ? 1 : -1;
+      document.getElementById("counter").innerHTML = "<strong>Controls Applied:</strong> " + applied + " of " + total;
     }
   </script>
 </body>
