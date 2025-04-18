@@ -6,27 +6,28 @@
   <style>
     .container {
       position: relative;
-      width: 100%;
-      max-width: 1332px;
+      width: 1332px;
+      height: 709px;
     }
     .container img {
-      width: 100%;
-      height: auto;
       position: absolute;
     }
     .container img.base {
       z-index: 0;
-      position: relative;
+      width: 100%;
     }
-    
-.overlay {
-  z-index: 1;
-  display: none;
-  position: absolute;
-  top: 0px;  /* fine-tuned position */
-  left: 0;
-}
-
+    .overlay {
+      z-index: 1;
+      display: none;
+      position: absolute;
+    }
+    #patch1 { top: 122px; left: 143px; }
+#patch2 { top: 170px; left: 235px; }
+#patch3 { top: 192px; left: 333px; }
+#patch4 { top: 200px; left: 430px; }
+#patch5 { top: 210px; left: 528px; }
+#patch6 { top: 220px; left: 630px; }
+#patch7 { top: 230px; left: 735px; }
   </style>
 </head>
 <body>
@@ -46,28 +47,28 @@
   </div>
 
   <div style="margin-top: 20px;">
-    <label><input type="checkbox" id="cb1" onclick="togglePatch(1)"> 1557-Compliant System Policy &amp; Procedures for Pre-Arrival through Discharge and Follow-Up</label><br>
-    <label><input type="checkbox" id="cb2" onclick="togglePatch(2)"> Prompt Availability of, Accessibility to, and Team Member&apos;s familiarity with Patient&apos;s Preferred Interpreting Modality</label><br>
-    <label><input type="checkbox" id="cb3" onclick="togglePatch(3)"> Adherence to CLAS</label><br>
-    <label><input type="checkbox" id="cb4" onclick="togglePatch(4)"> Documented Training in TeamSTEPPS &amp; Just Culture</label><br>
-    <label><input type="checkbox" id="cb5" onclick="togglePatch(5)"> Report Outs, Safety Huddles, &amp; FMEA and RCA2 f/u</label><br>
-    <label><input type="checkbox" id="cb6" onclick="togglePatch(6)"> Language Assessment to identify LEP and/or Deaf and Hard of Hearing Patient</label><br>
-    <label><input type="checkbox" id="cb7" onclick="togglePatch(7)"> Effective Assistance</label><br>
+    <label><input type="checkbox" id="cb1"> 1557-Compliant System Policy & Procedures for Pre-Arrival through Discharge and Follow-Up</label><br>
+    <label><input type="checkbox" id="cb2"> Prompt Availability of, Accessibility to, and Team Member's familiarity with Patient's Preferred Interpreting Modality</label><br>
+    <label><input type="checkbox" id="cb3"> Adherence to CLAS</label><br>
+    <label><input type="checkbox" id="cb4"> Documented Training in TeamSTEPPS & Just Culture</label><br>
+    <label><input type="checkbox" id="cb5"> Report Outs, Safety Huddles, & FMEA and RCA2 f/u</label><br>
+    <label><input type="checkbox" id="cb6"> Language Assessment to identify LEP and/or Deaf and Hard of Hearing Patient</label><br>
+    <label><input type="checkbox" id="cb7"> Effective Assistance</label><br>
   </div>
 
   <script>
-    function togglePatch(id) {
-      const patch = document.getElementById("patch" + id);
-      const checkbox = document.getElementById("cb" + id);
-      patch.style.display = checkbox.checked ? "block" : "none";
+    document.querySelectorAll('input[type="checkbox"]').forEach((checkbox, index) => {
+      checkbox.addEventListener("change", () => {
+        const patch = document.getElementById("patch" + (index + 1));
+        patch.style.display = checkbox.checked ? "block" : "none";
 
-      let total = 7;
-      let applied = 0;
-      for (let i = 1; i <= total; i++) {
-        if (document.getElementById("cb" + i).checked) applied++;
-      }
-      document.getElementById("counter").innerHTML = "<strong>Controls Applied:</strong> " + applied + " of " + total;
-    }
+        const total = 7;
+        const applied = Array.from(document.querySelectorAll('input[type="checkbox"]'))
+          .filter(cb => cb.checked).length;
+        document.getElementById("counter").innerHTML =
+          "<strong>Controls Applied:</strong> " + applied + " of " + total;
+      });
+    });
   </script>
 </body>
 </html>
